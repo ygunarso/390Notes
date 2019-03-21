@@ -1,0 +1,47 @@
+FUNC: function
+
+.global FUNC
+
+ldr
+mov
+str
+
+cmp
+cmn
+
+b
+beq
+bne
+bgt
+blt
+ble
+bge
+
+add
+adds
+adcs
+adc
+sub
+sub
+mul
+mla
+div
+
+push
+pop
+
+vmov
+vldr
+vcvt.f64
+vmul
+vadd
+vsub
+
+orr
+eor
+and
+
+lsl
+lsr
+
+bx lr

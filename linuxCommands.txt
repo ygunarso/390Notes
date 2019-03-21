@@ -1,0 +1,83 @@
+DIR:	Location in which files and other directories are stored
+FILE: 	Documents, such as texts, images, sounds
+CMD:	A Linux Command 
+
+Navigation:
+ls	Display a list of all files and directories in the current directory		
+ls -l	Provide more information about each files and directories than ls
+ls -lh	Provide better human readability on file information than ls -l
+ls -a	Provide a list which includes hidden files or directories, such as any file that starts with . on its name
+ls -al	Combine features of ls -a and -l
+ls -alh	Combine features of ls -a, -l, and -h 
+cd DIR	Go into directory path	
+cd ..	Go into the directory which contains the current directory
+cd ~	Go into home directory
+cd /	Go into previous directory
+
+File and Directory Commands:
+mkdir DIR		Create an empty directory of name DIR
+mkdir -p DIR1/DIR2	Create an empty directory which contains another directory
+rmdir DIR	 	Remove an empty directory of name DIR
+rm FILE			Remove file
+rm -f FILE		Force-remove file
+rm -r DIR		Remove directory and its contents
+rm -rf DIR		Force-remove directory
+touch FILE		Create a file of name FILE
+cat FILE		Display the contents of a text file
+file FILE		Display the file type information of FILE
+mv FILE DIR
+mv DIR1 DIR2
+mv FILE1 FILE2
+
+GNU Compiler Commands:
+g++
+g++ -c
+g++ -s -O2
+g++ FILE1 -o FILE2
+gcc
+(Difference between gcc and g++: gcc will compile .c and .cc files as they are and g++ will compile .c and .cc files as C++ files)
+
+git Commands:
+git init
+git clone
+git add .
+git add DIR
+git commit
+git commit -m"Comment"
+git status
+git reset
+git push
+git pull
+git checkout -b iss53
+
+Administrative Privileges:
+sudo
+sudo -s
+sudo reboot
+sudo shutdown
+sudo apt-get update
+sudo apt install
+sudo apt remove
+
+Text-Editors:
+nano
+emacs
+vim
+
+locate
+kill
+env
+make
+which
+man
+clear
+cp
+df
+ifconfig
+PCKG --version
+exit
+echo
+du
+help
+grep
+ld

@@ -1,0 +1,5 @@
+#ignore emacs backup files
+*~
+
+#mac-only .DS_Store
+*.DS_Store

@@ -1,0 +1,38 @@
+How to set up your Raspberry Pi with Raspbian
+
+What you need:
+-Micro SD Card with a minimum capacity of 8GB
+-Display compatible with HDMI (TV, Monitor)
+-Keyboard
+-Mouse
+-HDMI Cable
+-Power Supply
+-Computer compatible with SD Card
+
+Installing NOOBS:
+1. Download NOOBS onto your computer from this link: https://www.raspberrypi.org/downloads/noobs/
+2. Extract the downloaded ZIP file
+3. Copy the extracted files and directories to the Micro SD Card
+4. Eject Micro SD Card from computer and insert it on the SD Card Reader on the Raspberry Pi
+
+Installing Raspbian:
+1. Connect a mouse, keyboard, display (using the HDMI cable), and power supply to the Raspberry Pi
+2. It will take a while to boot up NOOBS, so be patient
+3. Once the installation screen pops up, select the preferred language and the keyboard layout at the bottom of the screen
+4. Check the box on the left for Raspbian [RECOMMENDED]
+5. Click install and this process will automatically restart after completion
+6. Congratulations, you have Raspbian on your Raspberry Pi!
+
+Wi-Fi Configuration:
+1. Click the network icon on the top right section of the menu bar
+2. Turn on Wi-Fi if not on and select Wi-Fi network
+3. Enter password (if any) and click OK
+
+Bluetooth Configuration:
+1. Click the bluetooth icon the top right section of the menu bar
+2. Turn on Bluetooth if not on and click Add Device
+3. Select device to be paired and follow the directions given on screen
+
+(Optional)
+Remote Access to Raspberry Pi using SSH (Mac OS X only):
+Remote Access to Rapsberry Pi using VNC (Mac OS X only):

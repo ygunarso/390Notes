@@ -4,5 +4,4 @@ This is the CPE390 Course Notes and Instructions. This repo contains these docum
 3. Linux Commands List and their descriptions
 4. Summary of ARM Instructions
 5. Computer Architecture
-6. Logical Operations
-7. Machine Arithmetic in ARM Assembly
+6. Summary of Math Operations

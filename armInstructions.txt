@@ -1,47 +1,93 @@
-FUNC: function
+FUNC: 	Function
+rn:	Integer register with the number n (Raspberry Pi has 16, so r0-r15)
+dn:	Floating point register with the number n (Raspberry Pi has 32, so d0-d31)
 
-.global FUNC
+Calling Assembly Functions from C/C++:
+Method 1 - Name Mangling:
+C++:	int main () {}
 
-ldr
-mov
-str
+ARM:
+	.global _Z4main
+_Z4main:
 
-cmp
-cmn
+Method 2 - Unmangled:
+C++:	extern "C" int main () {}
 
-b
-beq
-bne
-bgt
-blt
-ble
-bge
+ARM:
+	.global main
+	.type main, %function
+main:
 
-add
-adds
-adcs
-adc
-sub
-sub
-mul
-mla
-div
+.global FUNC	Declares the function FUNC to be global (hence, callable by a C++ script)
 
-push
-pop
+ldr	Load a value to a register
 
-vmov
+mov	Move the value of a register to another register
+
+str	Store a value to a register
+
+cmp	Subtract the value of a register from another register, but result is not stored	
+Carry flag is set to 0 if the operation results in an underflow or overflow; otherwise, it is set to 1
+
+cmn	Add the value of a register to another register, but result is not stored
+Carry flag is set to 1 if the operation results in an underflow or overflow; otherwise, it is set to 0
+
+b	Branch unconditionally 
+
+beq	Branch if equal to
+
+bne	Branch if not equal to
+
+bgt	Branch if greater than
+
+blt	Branch if less than
+
+ble	Branch if less than or equal to
+
+bge	Branch if greater than or equal to
+
+add		Add two values together
+add r0, r1	Add r1 to r0 and stores the value in r0
+add r0, r1, r2 	Add r2 to r1 and stores the value in r0
+adds r0, r1, r2	Add and if the addition results in overflow, set carry flag to 1; otherwise, set to 0
+adc		Add the two values and the carry flag
+adcs		Add with carry and if the addition results in overflow, set the carry flag to 1; otherwise, set to 0
+sub		Subtracts a value from another value
+subs		Subtract and if the subtraction results in underflow, set carry flag to 1; otherwise, set to 0
+
+mul			Multiple two values together
+mla r0, r1, r2, r3	Multiple r1 and r2 together, then add r3 to the result, then add that result to r0
+
+push	Push the value in these registers onto the stack
+	
+pop	Pop the value on the stack into these registers
+
+vmov	mov operations for floating point registers
+
 vldr
+
 vcvt.f64
+
 vmul
+
 vadd
+
 vsub
 
+
+
 orr
+
 eor
+
 and
 
+
+
 lsl
+
 lsr
 
-bx lr
+
+
+bx lr	Leaves the function and ends program

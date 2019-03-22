@@ -1,0 +1,39 @@
+How to set up GitHub
+
+Creating a student account on GitHub:
+1. Sign up for a GitHub account by going to this link: https://github.com/
+2. Follow the instructions and select a free plan initially
+3. After successfully creating an account, go to this link: https://education.github.com/pack
+4. Click on Get your Pack and login with the previously created GitHub account
+5. Select Student under Academic Status
+6. Add your Stevens email address under Email*
+	*Some students have trouble with this method, you can also use your personal email and then upload a picture of your student ID
+7. Enter Stevens Institute of Technology under School Name
+8. Fill out the rest of the forms and click Submit your information after completing the forms
+9. Now wait!
+Note that this is an application and that it might take a few days to process. You will receive a confirmation email once the application has been process, giving you access to the GitHub Student Developer Pack
+
+Setting up git (Mac OS X only)
+1. Go to this link: https://git-scm.com/downloads
+2. Download the Mac OS X version of the client 
+3. Follow the installation process
+4. After successfully installing git, open Terminal
+5. Set a git username and email address by entering the following lines
+	$ git config --global user.name "username"
+	$ git config --global user.email "email@example.com"
+6. If the email address set is not associated with your GitHub account yet, add the email address to your GitHub account
+
+Setting up SSH (Mac OS X only):
+1. Open Terminal and enter the following line
+	$ ssh-keygen -t rsa
+2. Hit Enter when prompted with Enter a file
+3. Hit Enter twice again to skip the passphrase process
+4. Enter the following line to display the SSH key phrase
+	cat ~/.ssh/id_rsa.pub
+5. Copy the public key to your clipboard
+6. Go to your GitHub page and click on the dropdown button of your profile on the top right corner
+7. Go to Setting -> SSH and GPG keys -> New SSH key
+8. Enter the name of your computer and the SSH key phrase and click Add SSH key
+9. Make sure to repeat this process for every computer that you want to use with GitHub
+
+Cloning git repo containing course notes

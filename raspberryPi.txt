@@ -35,4 +35,15 @@ Bluetooth Configuration:
 
 (Optional)
 Remote Access to Raspberry Pi using SSH (Mac OS X only):
+Get IP Address of Raspberry Pi using mouse, keyboard, and display:
+1. Open Terminal on your Raspberry Pi and type the following command
+	hostname -I
+2. This should print out your Raspberry Pi's IP Address and make sure to write this somewhere as you will need it to SSH into the Pi
+3. Type the following command
+	sudo raspi-config
+4. Go to Interfacing Options -> SSH and Enable SSH 
+5. Reboot the Raspberry Pi
+6. Good work! You can now SSH into this Raspberry Pi using the IP Address found previously
+Get IP Address of Raspberry Pi without any of that:
 Remote Access to Rapsberry Pi using VNC (Mac OS X only):
+1. Make sure you have 

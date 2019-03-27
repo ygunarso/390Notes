@@ -1,6 +1,10 @@
+Linux Commands
+
+Reference:
 DIR:	Location in which files and other directories are stored
 FILE: 	Documents, such as texts, images, sounds
 CMD:	A Linux Command 
+PCKG:	Package or Program
 
 Navigation:
 ls	Display a list of all files and directories in the current directory		
@@ -25,17 +29,18 @@ rm -rf DIR		Force-remove directory
 touch FILE		Create a file of name FILE
 cat FILE		Display the contents of a text file
 file FILE		Display the file type information of FILE
-mv FILE DIR
-mv DIR1 DIR2
-mv FILE1 FILE2
+mv FILE DIR		Move file FILE to directory DIR
+mv DIR1 DIR2		Move directory DIR1 to directory DIR2
+mv FILE1 FILE2		Change name of FILE1 to FILE2
 
 GNU Compiler Commands:
-g++
-g++ -c
-g++ -s -O2
-g++ FILE1 -o FILE2
-gcc
-(Difference between gcc and g++: gcc will compile .c and .cc files as they are and g++ will compile .c and .cc files as C++ files)
+g++ (or gcc) 		
+g++ (or gcc) -c
+g++ (or gcc) -s
+g++ (or gcc) -s -O2
+g++ (or gcc) FILE1 -o FILE2
+	Difference between gcc and g++: 
+	gcc will compile .c and .cc files as they are and g++ will 		compile .c and .cc files as C++ files)
 
 git Commands:
 git init

@@ -1,23 +1,10 @@
-1. How to install Rasbian and get it working with your laptop
-Include How to clone the git repo with the course notes (include setting up ssh)
-
 2. Prepare a summary of the math we do up to the due date of this homework. Consider this prep for the midterm
 
 integer overflow, floating point, hex, binary, conversion, and/or/xor/shifting
 
-3. All linux commands you need to know to get around. Note I just created a repo, and everyone is expected to add EXACTLY one command. If you don't know one, ask me.
-
-if you think there are missing commands, add them into the file called misc.txt.  Other people can use your ideas if they get stuck and add yours.
-
-4. A list of all ARM assembler instructions we have covered in class.
-
-The midterm will use the math and the ARM assembler so you can think of this part of the assignment as being study preparation for the midterm.
-
 Deliverables
-A summary of all the ARM instructions we cover in this course.
 A guide showing how to install g++ or clang++ on MSYS2 under windows or Mac OSX. Your group can just pick one, you do not need to do both. To score the full 400 point consider doing both.
 A guide showing every step of installing Raspberry Pi from noobs OS, installing g++, git, setting up ssh keys.
-A summary of linux commands used including git commands
 Diagrams showing key concepts in the course
 Von Neumann Architecture
 Harvard Architecture

@@ -15,7 +15,6 @@ C++:	extern "C" int main () {}
 
 ARM:
 	.global main
-	.type main, %function
 main:
 
 .global FUNC	Declares the function FUNC to be global (hence, callable by a C++ script)
@@ -81,6 +80,10 @@ orr
 eor
 
 and
+
+test
+
+not
 
 
 

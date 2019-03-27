@@ -1,0 +1,66 @@
+Summary of Math Operations
+
+Integer:
+Integer Overflow
+Integer arithmetic for a 3-bit machine showing signed and unsigned numbers. You should convey how signed and unsigned numbers work and show examples showing the problems of overflow (ie 3 + 1 → -4)
+
+128-bit arithmetic using 32-bit numbers:
+
+Floating point:
+Floating point arithmetic showing the structure of float and double using the IEEE-754 standard.
+
+Decimal-Binary-Hex:
+Decimal is a Base-10 number system, which means every digit represents a number from 0 to 9
+Binary is a Base-2 number system, which means every digit represents a number either 0 or 1
+Hex is a Base-16 number system, which means every digit represents a number from 0 to F
+
+Decimal-Binary:
+Binary representation can be summarized by the following table: 
+
+Every digit in binary represents a 2 to the power of n. A simple conversion method would be to find the highest power of two that does not exceed the number to be converted. This highest power of two would then be subtracted from the number to be converted. This process is repeated until the number reaches zero. The power of two(s) used to subtract the number is then converted into a binary number, consisting of 1's and 0's. 
+Example:
+Decimal - 357
+Binary - 	357-256 = 101	(2^8)
+		101-64 = 37	(2^6)
+		37-32 = 5	(2^5)
+		5-4 = 1		(2^2)
+		1-1 = 0		(2^0)
+	The resulting binary number would be 101100101(Base-2)
+
+Binary-Hex:
+Every digit in binary can be considered a bit, which either represents a 0 or a 1. Every digit in hex consists of 4 bits, which means it has 16 different representations: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. To convert from binary to hex, every 4 bits of binary are converted into a single hex digit. The following table summarizes those conversions.
+Example:
+Decimal - 357
+Binary - 101100101(Base-2)
+Hex -	1 | 0110 | 0101
+	1 |  6   |  5
+	The resulting hex number would be 165(Base-16)
+
+Logic Gates:
+
+AND
+
+OR
+
+NOT
+
+XOR
+
+NAND
+
+NOR
+
+How to construct an AND gate from NAND gates
+
+How to construct a NOR gate from NOR gates
+
+Bitwise operators:
+AND
+
+OR
+
+XOR
+
+Logical Shift Left
+
+Logical Shift Right

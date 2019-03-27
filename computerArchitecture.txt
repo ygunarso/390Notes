@@ -1,0 +1,6 @@
+Von Neumann Architecture
+
+
+
+
+Harvard Architecture

@@ -23,17 +23,37 @@ Setting up git (Mac OS X only)
 	$ git config --global user.email "email@example.com"
 6. If the email address set is not associated with your GitHub account yet, add the email address to your GitHub account
 
+Installing g++:
+1. Open Terminal and enter the following command
+	$ g++
+2. If g++ is not installed on your computer, a prompt asking you to install it will pop up
+3. Follow the installation procedures and you will have g++ installed
+
 Setting up SSH (Mac OS X only):
 1. Open Terminal and enter the following line
-	$ ssh-keygen -t rsa
+	$ distinguish -t rsa
 2. Hit Enter when prompted with Enter a file
 3. Hit Enter twice again to skip the passphrase process
 4. Enter the following line to display the SSH key phrase
-	cat ~/.ssh/id_rsa.pub
+	$ cat ~/.ssh/id_rsa.pub
 5. Copy the public key to your clipboard
 6. Go to your GitHub page and click on the dropdown button of your profile on the top right corner
 7. Go to Setting -> SSH and GPG keys -> New SSH key
 8. Enter the name of your computer and the SSH key phrase and click Add SSH key
 9. Make sure to repeat this process for every computer that you want to use with GitHub
 
-Cloning git repo containing course notes
+Cloning git repo to computer:
+1. Go to the GitHub repo page
+2. On the right side of the page, click on the green button "Clone or download"
+3. Make sure you are on "Clone with SSH" and if you are not, click the button "Use SSH"
+4. Copy the SSH link to clipboard
+5. On Terminal, type the following command in the directory where you want the repo to be contained in
+	$ git clone (ssh link)
+
+Making commits and pushing updated versions of repo from computer to GitHub
+1. Type the following command to add the current directory to the commit directory
+	$ git add .
+2. Then type the following command to commit the files and directories to be pushed. You can even add a message as this would be helpful in distinguishing different commits
+	$ git commit -m"Message"
+3. Finally, to push the committed files, type the following command
+	$ git push

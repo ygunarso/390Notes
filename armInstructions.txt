@@ -1,6 +1,7 @@
 FUNC: 	Function
 rn:	Integer register with the number n (Raspberry Pi has 16, so r0-r15)
 dn:	Floating point register with the number n (Raspberry Pi has 32, so d0-d31)
+ci: 	Constant integer
 
 Calling Assembly Functions from C/C++:
 Method 1 - Name Mangling:
@@ -19,78 +20,98 @@ main:
 
 .global FUNC	Declares the function FUNC to be global (hence, callable by a C++ script)
 
+Loading and Storing:
 ldr	Load a value to a register
-
-mov	Move the value of a register to another register
+ldr rn, [rn]
+ldr rn, [rn, #ci]
 
 str	Store a value to a register
+str rn, [rn]
+str rn, [rn, #ci]
 
-cmp	Subtract the value of a register from another register, but result is not stored	
+mov	Move the value of a register to another register
+mov rn, rn
+mov rn, #ci
+
+Comparing:
+cmp	Subtract the value of a register from another register, but result is not stored
 Carry flag is set to 0 if the operation results in an underflow or overflow; otherwise, it is set to 1
+cmp rn, rn
+cmp rn, #ci
 
 cmn	Add the value of a register to another register, but result is not stored
 Carry flag is set to 1 if the operation results in an underflow or overflow; otherwise, it is set to 0
+cmn rn, rn
+cmn rn, #ci
 
-b	Branch unconditionally 
+Branching:
+b FUNC		Branch unconditionally to function FUNC
+beq FUNC	Branch to function FUNC if equal to 0
+bne FUNC	Branch to function FUNC if not equal to 0
+bgt FUNC	Branch to function FUNC if greater than 0
+blt FUNC 	Branch to function FUNC if less than 0
+ble FUNC	Branch to function FUNC if less than or equal to 0
+bge FUNC	Branch to function FUNC if greater than or equal to 0
 
-beq	Branch if equal to
-
-bne	Branch if not equal to
-
-bgt	Branch if greater than
-
-blt	Branch if less than
-
-ble	Branch if less than or equal to
-
-bge	Branch if greater than or equal to
-
+Arithmetic:
 add		Add two values together
-add r0, r1	Add r1 to r0 and stores the value in r0
-add r0, r1, r2 	Add r2 to r1 and stores the value in r0
-adds r0, r1, r2	Add and if the addition results in overflow, set carry flag to 1; otherwise, set to 0
+add r0, r1	r0 = r0 + r1
+add r0, r1, r2 	r0 = r1 + r2
+
+adds		Add and if the addition results in overflow, set carry flag to 1; otherwise, set to 0
 adc		Add the two values and the carry flag
 adcs		Add with carry and if the addition results in overflow, set the carry flag to 1; otherwise, set to 0
+
 sub		Subtracts a value from another value
+sub r0, r1	r0 = r0 - r1
+sub r0, r1, r2	r0 = r1 - r2
 subs		Subtract and if the subtraction results in underflow, set carry flag to 1; otherwise, set to 0
 
 mul			Multiple two values together
-mla r0, r1, r2, r3	Multiple r1 and r2 together, then add r3 to the result, then add that result to r0
+mul r0, r1
+mul r0, r1, r2
 
+mla 			Multiple r1 and r2 together, then add r3 to the result, then add that result to r0
+mla r0, r1, r2, r3	r0 = r1 * r2 + r3
+
+Stack:
 push	Push the value in these registers onto the stack
+push {r0, r1}
 	
 pop	Pop the value on the stack into these registers
+pop {r0, r1}
 
-vmov	mov operations for floating point registers
+Floating point:
+vmov		Move operations for floating point registers
 
-vldr
+vldr		Load operations for floating point registers
 
-vcvt.f64
+vcvt.f64	Convert floating point format
 
-vmul
+vmul		Multiplication operations for floating point registers
 
-vadd
+vadd		Addition operations for floating point registers
 
-vsub
-
-
-
-orr
-
-eor
-
-and
-
-test
-
-not
+vsub		Subtraction operations for floating point registers
 
 
+Bitwise operators:
+orr		OR - Return 1 in each bit position if 1 occurs at least once
+	
+eor		XOR - Return 1 in each bit position if 1 occurs exactly once
 
-lsl
+and		AND - Return 1 in each bit position if 1 occurs exactly twice
 
-lsr
+test		AND, but the result is not stored
+
+not		NOT - Return 1 if 0 occurs and 0 if 1 occurs
 
 
 
+lsl		Logical shift left - Shift all bits to the left and add 0's on the right equal to the number of positions shifted
+
+lsr		Logical shift right - Shift all bits to the right and remove bits on the right equal to the number of positions shifted
+
+
+Return instruction:
 bx lr	Leaves the function and ends program

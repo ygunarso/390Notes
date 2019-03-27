@@ -34,55 +34,60 @@ mv DIR1 DIR2		Move directory DIR1 to directory DIR2
 mv FILE1 FILE2		Change name of FILE1 to FILE2
 
 GNU Compiler Commands:
-g++ (or gcc) 		
-g++ (or gcc) -c
-g++ (or gcc) -s
-g++ (or gcc) -s -O2
-g++ (or gcc) FILE1 -o FILE2
+g++ (or gcc) FILE.cpp			Compile file FILE and creates an executable a.out
+g++ (or gcc) -c FILE.cpp		Compile file FILE only		
+g++ (or gcc) -o FILE1.o -c FILE2.cpp	Compile file FILE2 and create object file FILE1
+g++ (or gcc) -S FILE.cpp		Generate an unoptimized assembly code from file from FILE
+g++ (or gcc) -S -O2 FILE.cpp		Generate an optimized assembly code from file FILE
 	Difference between gcc and g++: 
-	gcc will compile .c and .cc files as they are and g++ will 		compile .c and .cc files as C++ files)
+	gcc will compile .c and .cc files as they are and g++ will compile .c and .cc files as C++ files)
 
 git Commands:
-git init
-git clone
-git add .
-git add DIR
-git commit
-git commit -m"Comment"
-git status
-git reset
-git push
-git pull
-git checkout -b iss53
+git init			Create a new repository in the local directory
+git clone			Create a clone of an existing repository
+git add .			Add the current directory in the commit directory
+git add DIR			Add the directory DIR in the commit directory
+git commit			Commit the files in the commit directory
+git commit -m"Comment"		Commit with comment
+git status			Display the status of repository
+git reset			Clear the commit directory 
+git push			Push the committed files and directories to GitHub
+git pull			Pull the committed files and directories from GitHub
+git checkout -b iss53		Navigate between branches
 
 Administrative Privileges:
-sudo
-sudo -s
-sudo reboot
-sudo shutdown
-sudo apt-get update
-sudo apt install
-sudo apt remove
+sudo CMD		Run command with administrative privileges
+sudo -s CMD		Run command under your shell with admin privileges
+sudo reboot		Reboot the computer
+sudo shutdown		Schedule a shutdown for the computer
+sudo apt-get update	Update all packages that need updating
+sudo apt install PCKG	Install package PCKG
+sudo apt remove PCKG	Remove package PCKG
 
 Text-Editors:
-nano
-emacs
-vim
+nano FILE		Open file in nano
+emacs FILE		Open file in emacs
+vim FILE		Open file in vim
+vi FILE			Open file in vi
 
-locate
-kill
-env
-make
-which
-man
-clear
-cp
-df
-ifconfig
-PCKG --version
-exit
-echo
-du
-help
-grep
-ld
+Search and Sort:
+locate FILE		Locate files of name FILE in the system
+which FILE		Display path of file FILE
+grep STR		Search file that contains string STR	
+sort 			Sort the input into sorted output		
+
+Miscellaneous:
+kill			Terminate process
+killall			Terminate all processes
+env			List all the environment variables 
+make			Compile a program from Makefile
+man CMD			Display user manual for command CMD
+clear			Clear all previous commands in Terminal
+cp FILE/DIR		Create a copy of file or directory
+df			Display a summary of disk space in system
+ifconfig		List all interfaces in network
+ifconfig -a		List of active and inactive interfaces in network
+PCKG --version		Display version of package PCKG
+exit			Exit the shell
+echo			Print the input text/value
+ld FILE1 FILE2		Combines files FILE1 and FILE2

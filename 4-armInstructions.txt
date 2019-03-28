@@ -1,25 +1,29 @@
+ARM Instructions
+
+Reference:
 FUNC: 	Function
 rn:	Integer register with the number n (Raspberry Pi has 16, so r0-r15)
-dn:	Floating point register with the number n (Raspberry Pi has 32, so d0-d31)
+sn:	Single-precision floating point register with the number n (Raspberry Pi has 32, so s0-s31)
+dn:	Double-precision floating point register with the number n
 ci: 	Constant integer
+
+.global FUNC	Declares the function FUNC to be global (hence, callable by a C++ script)
 
 Calling Assembly Functions from C/C++:
 Method 1 - Name Mangling:
 C++:	int main () {}
-
 ARM:
-	.global _Z4main
-_Z4main:
+		.global _Z4main
+	_Z4main:
 
 Method 2 - Unmangled:
 C++:	extern "C" int main () {}
 
 ARM:
-	.global main
-main:
+		.global main
+	main:
 
-.global FUNC	Declares the function FUNC to be global (hence, callable by a C++ script)
-
+Instructions:
 Loading and Storing:
 ldr	Load a value to a register
 ldr rn, [rn]
@@ -66,6 +70,8 @@ sub		Subtracts a value from another value
 sub r0, r1	r0 = r0 - r1
 sub r0, r1, r2	r0 = r1 - r2
 subs		Subtract and if the subtraction results in underflow, set carry flag to 1; otherwise, set to 0
+subc		Subtract the two values and the carry flag
+subcs		Subtract with carry and if the subtraction results in underflow, set the carry flag to 1; otherwise, set to 0
 
 mul			Multiple two values together
 mul r0, r1
@@ -75,25 +81,49 @@ mla 			Multiple r1 and r2 together, then add r3 to the result, then add that res
 mla r0, r1, r2, r3	r0 = r1 * r2 + r3
 
 Stack:
-push	Push the value in these registers onto the stack
+push		Push the value in these registers onto the stack
 push {r0, r1}
 	
-pop	Pop the value on the stack into these registers
+pop		Pop the value on the stack into these registers
 pop {r0, r1}
 
 Floating point:
+vpush		Push operations for floating point registers
+
+vpop		Pop operations for floating point registers
+
 vmov		Move operations for floating point registers
+vmov s0, s1
+vmov s0, r1
+vmov r0, s1
+vmov d0, r0, r1
+vmov r0, r1, d0
 
 vldr		Load operations for floating point registers
+vldr s0, [r0]
+vldr s0, [r0, #ci]
 
-vcvt.f64	Convert floating point format
+vstr		Store operations for floating point registers	
+vstr s0, [r0]
+vstr s0, [r0, #ci]
 
-vmul		Multiplication operations for floating point registers
+vcvt		Convert floating point format
+vcvt.f64.f32 d0, s0
+vcvt.f32.f64 s0, d0
 
 vadd		Addition operations for floating point registers
+vadd.f32 s1, s2, s3
+vadd.f64 d1, d2, d3
 
 vsub		Subtraction operations for floating point registers
+vsub.f32 s1, s2, s3
+vsub.f64 d1, d2, d3
 
+vmul		Multiplication operations for floating point registers
+vmul.f32 s1, s2, s3
+vmul.f64 d1, d2, d3
+vmla.f64 d0, d1, d2, d3
+vmla.f32 s0, s1, s2, s3
 
 Bitwise operators:
 orr		OR - Return 1 in each bit position if 1 occurs at least once
@@ -106,12 +136,9 @@ test		AND, but the result is not stored
 
 not		NOT - Return 1 if 0 occurs and 0 if 1 occurs
 
-
-
 lsl		Logical shift left - Shift all bits to the left and add 0's on the right equal to the number of positions shifted
 
 lsr		Logical shift right - Shift all bits to the right and remove bits on the right equal to the number of positions shifted
-
 
 Return instruction:
 bx lr	Leaves the function and ends program

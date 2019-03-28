@@ -7,7 +7,7 @@ CMD:	A Linux Command
 PCKG:	Package or Program
 
 Navigation:
-ls	Display a list of all files and directories in the current directory		
+ls	Display a list of all files and directories in the current directory
 ls -l	Provide more information about each files and directories than ls
 ls -lh	Provide better human readability on file information than ls -l
 ls -a	Provide a list which includes hidden files or directories, such as any file that starts with . on its name

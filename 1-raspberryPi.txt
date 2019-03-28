@@ -36,19 +36,37 @@ Bluetooth Configuration:
 (Optional)
 Get IP Address of Raspberry Pi using mouse, keyboard, and display:
 1. Open Terminal on your Raspberry Pi and type the following command
-	hostname -I
+	$ hostname -I
 2. This should print out your Raspberry Pi's IP Address and make sure to write this somewhere as you will need it to SSH into the Pi
 
 Remote Access to Raspberry Pi using SSH (Mac OS X only):
 1. Type the following command
-	sudo raspi-config
+	$ sudo raspi-config
 2. Go to Interfacing Options -> SSH and Enable SSH 
 3. Reboot the Raspberry Pi
 4. On your computer, you can SSH into the Raspberry Pi by typing in the following command on Terminal
-	ssh pi@(insert IP address here)
+	$ ssh pi@(insert IP address here)
 5. Congrats! You now have control over the Pi's bash Terminal from your computer
 
 Remote Access to Rapsberry Pi using VNC (Mac OS X only):
+Installing VNC:
 1. On your Raspberry Pi, type the following commands on Terminal:
-	sudo apt-get update
-	sudo apt-get install realvnc-vnc server realvnc-vnc-viewer
+	$ sudo apt-get update
+	$ sudo apt-get install realvnc-vnc server realvnc-vnc-viewer
+2. Type the following command on your Pi's Terminal:
+	$ sudo raspi-config
+3. On the configurations screen, go to Interfacing Options -> VNC and enable VNC
+
+Direct Connection:
+With direct connection, the computer that is accessing the Raspberry Pi has to be in the same network as the Raspberry Pi.
+1. Type the following command on your Pi's Terminal to print its IP Address
+	$ hostname -I
+2. On your computer, download and install VNC Viewer: https://www.realvnc.com/en/connect/download/viewer/
+3. On VNC Viewer, enter your Pi's IP address and your connection is set! 
+
+Cloud Connection:
+Cloud connection enables you to access the Raspberry Pi remotely without being in the same network. 
+1. Create a RealVNC account: https://www.realvnc.com/raspberrypi/#sign-up
+2. Make sure that your Raspberry Pi is connected to a static IP address, which means it has to be connected through an Ethernet cable
+3. Sign in with your RealVNC account on both the VNC Server on the Raspberry Pi and the VNC Viewer on your computer
+4. Enter your Raspberry Pi's IP Address on the Address Book and you will always have access to your Raspberry Pi (given that both the Raspberry Pi is still connected to the Ethernet cable and that your computer has Internet connection)

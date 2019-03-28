@@ -1,0 +1,134 @@
+Summary of Math Operations
+
+Signed and Unsigned Integers:
+A 32-bit unsigned integer has a range from 0 to 2^32-1, which is approximately 4.2 billion. On the other hand, since signed integers use the first bit to represent the sign (1 for negative and 0 for positive), it only has a range from -2^31 to 2^31-1, which is approximately 2.1 billion. 
+
+Integer Overflow: 
+Most signed integers in computers can only hold between the number -2^31 to 2^31-1. When an operation (addition or subtraction) exceeds this range of integers, the number will wrap around the max/min and return to min/min respectively. For example, in a 3-bit machine, an addition of 3 and 1 will print a negative 4 because -4 is the lowest integer that can be represented. 
+
+128-bit arithmetic using 32-bit numbers:
+Using an array of 4 32-bit numbers, 128-numbers can be represented this way. The least significant digits are then added first, followed by the second least significant digits, followed by the second most significant digits, and then followed by the most significant digits. If an addition causes an overflow, the carry flag, which is 1, is set and then added to the following addition.
+
+Floating point:
+A single-precision floating point number typically has a range of 32 bits, while a double-precision floating point number floating point number has a range of 64 bits. 
+
+Decimal-Binary-Hex:
+Decimal is a Base-10 number system, which means every digit represents a number from 0 to 9.
+Binary is a Base-2 number system, which means every digit represents a number either 0 or 1.
+Hex is a Base-16 number system, which means every digit represents a number from 0 to F.
+
+Decimal-Binary:
+Binary representation can be summarized by the following table: 
+	Decimal		Power of Two	Binary	
+	1		2^0		1
+	2		2^1		10
+	4		2^2		100
+	8		2^3		1000
+	16		2^4		10000
+	32		2^5		100000
+	64		2^6		1000000
+	128		2^7		10000000
+	256		2^8		100000000
+Every digit in binary represents a 2 to the power of n. A simple conversion method would be to find the highest power of two that does not exceed the number to be converted. This highest power of two would then be subtracted from the number to be converted. This process is repeated until the number reaches zero. The power of two(s) used to subtract the number is then converted into a binary number, consisting of 1's and 0's. 
+Example:
+Decimal - 357
+Binary - 	357-256 = 101	(2^8)
+		101-64 = 37	(2^6)
+		37-32 = 5	(2^5)
+		5-4 = 1		(2^2)
+		1-1 = 0		(2^0)
+	The resulting binary number would be 101100101(Base-2)
+
+Binary-Hex:
+Every digit in binary can be considered a bit, which either represents a 0 or a 1. Every digit in hex consists of 4 bits, which means it has 16 different representations: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F. To convert from binary to hex, every 4 bits of binary are converted into a single hex digit. The following table summarizes those conversions:
+	Binary		Hex
+	0000		0
+	0001		1
+	0010		2
+	0011		3
+	0100	`	4
+	0101		5
+	0110		6
+	0111		7
+	1000		8
+	1001		9
+	1010		A
+	1011		B
+	1100		C
+	1101		D
+	1110		E
+	1111		F
+Example:
+Decimal - 357
+Binary - 101100101(Base-2)
+Hex -	1 | 0110 | 0101
+	1 |  6   |  5
+	The resulting hex number would be 165(Base-16)
+
+Logic Gates:
+AND
+This operation prints a 1 if both inputs are true.
+	A   B   AND
+	0   0   0
+	0   1   0
+	1   0   0
+	1   1   1
+
+OR
+This operation prints a 1 if either inputs are true.
+	A   B   OR
+	0   0   0
+	0   1   1
+	1   0   1
+	1   1   1
+
+NOT
+This operation inverts the bits (1->0, 0->1).
+	A   NOT
+	0   1
+	1   0
+
+XOR
+This operation prints a 1 if only either inputs are true, but not both.
+	A   B   XOR
+	0   0   0
+	0   1   1
+	1   0   1
+	1   1   0
+
+NAND
+This operation prints a 1 if both inputs are not true.
+	A   B   NAND
+	0   0   1
+	0   1   1
+	1   0   1
+	1   1   0
+
+NOR
+This operation prints a 1 if none of the inputs are true.
+	A   B   NOR
+	0   0   1
+	0   1   0
+	1   0   0
+	1   1   0
+
+How to construct an AND gate from NAND gates
+A NAND gate followed by another NAND gate will operate exactly like an AND gate. 
+
+How to construct a NOR gate from NOR gates
+A NOR gate followed by another NOR gate will operate exactly like an OR gate.
+
+Logical Shift Left
+This operation shifts all bits to the left and add 0's on the right equal to the number of positions shifted
+	A	 11011001
+	LSL	110110010
+
+Logical Shift Right
+This operation shifts all bits to the right and remove bits on the right equal to the number of positions shifted
+	A	 11011001
+	LSR	  1101100
+
+Switching values between two registers using only those two registers:
+    a = a + b
+    b = a - b 	// b = a
+    a = a - b 	// a = b

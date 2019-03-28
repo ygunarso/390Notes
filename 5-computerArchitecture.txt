@@ -1,0 +1,34 @@
+Von Neumann Architecture:
+
+Control Unit			|
+Arithmetic Logic Unit	(ALU)	|- Central Processing Unit (CPU)
+Memory Unit			|
+Input/Output
+Registers
+- Memory Address Register		Store location of data to be accessed
+- Memory Data Register			Store data to be accessed
+- Accumulator				Store results of previous instruction
+- Program Counter			Store address of next instruction
+- Current Instruction Register		Store current instruction in processing
+Buses
+- Address Bus		Carry address of data between CPU and memory
+- Data Bus		Carry data between CPU, memory, and input/output
+- Control Bus		Carry control signals from CPU
+
+
+Von Neumann Architecture vs. Harvard Architecture:
+
+Memory
+- Harvard Architecture: 	separate data and instruction busses
+				allow simultaneous transfer on both data and instruction busses
+				unified memory system -> inefficient
+				two separate memory system -> perform better but difficult to implement
+- Von Neumann Architecture:	one bus, which is used for both data and instruction transfers
+				importance of scheduling and transfer cannot be simultaneous
+				best for unified memory system
+
+Cache
+- Harvard Architecture:		separate caches for each bus
+				used for higher performance systems
+- Von Neumann Architecture:	single unified cache
+				stores both instructions and data
